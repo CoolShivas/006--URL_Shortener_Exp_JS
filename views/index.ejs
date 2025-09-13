@@ -19,6 +19,13 @@
         <input type="text" id="longUrl" name="longestURL" required />
         <button type="submit">Shorten</button>
       </form>
+      <!-- Starting of Showing the label (ShortUrl :- ) and rendering the dynamic data (<%= shortUrl %>) -->
+      <% if(shortUrl) { %>
+      <p>
+        ShortUrl :- <a href="<%= shortUrl %>" target="_blank" />
+        <%= shortUrl %>
+      </p>
+      <% } %>
     </div>
   </body>
 </html>

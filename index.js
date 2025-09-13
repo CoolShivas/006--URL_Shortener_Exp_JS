@@ -16,7 +16,8 @@ mongoose
   .catch((err) => console.log(err));
 
 server.get("/", (request, response) => {
-  response.render("index.ejs");
+  // // Passing the { shortUrl: null } to index.ejs file for logic purpose;
+  response.render("index.ejs", { shortUrl: null });
 });
 
 server.post("/storing", (request, response) => {
