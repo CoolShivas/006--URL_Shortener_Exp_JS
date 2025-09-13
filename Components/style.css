@@ -1,0 +1,125 @@
+body {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+  width: 460px;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 10px 0 0 10px;
+  outline: none;
+  font-size: 16px;
+}
+
+button {
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  padding: 14px 20px;
+  border-radius: 0 10px 10px 0;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 106, 0, 0.5);
+}
+
+/* Short URL section */
+.short-url-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px 18px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  animation: fadeIn 0.7s ease-in-out;
+}
+
+.short-url-box span {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.short-url-box a {
+  color: #00f2fe;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.3s;
+  word-break: break-all;
+}
+
+.short-url-box a:hover {
+  color: #4facfe;
+  text-decoration: underline;
+}
+
+.copy-btn {
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform 0.2s ease, background 0.3s;
+}
+
+.copy-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(45deg, #43e97b, #38f9d7);
+}

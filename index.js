@@ -1,10 +1,12 @@
 import express from "express";
 import mongoose from "mongoose";
+import path from "path";
 import { getOriginalUrlFunc, shortUrlFunc } from "./Controllers/url.js";
 
 const server = express();
 
 server.use(express.urlencoded({ extended: true })); // Hidding the information or details on URL;
+server.use(express.static(path.join(path.resolve(), "Components")));
 
 mongoose
   .connect(
