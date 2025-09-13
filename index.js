@@ -42,34 +42,68 @@ server.post("/storing", async (request, response) => {
 });
 
 // // // When we get the short url if user click on it render it by dynamically change the shortUrl to original Url (longUrl) to another page not on same page;
-server.get("/:shortToLong", (req, res) => {
+server.get("/:shortToLong", async (req, res) => {
   // // Using params to get the dynamic shortCode after slash in url;
   // // And, while using params we have to take the dynamic route i.e,(/:shortToLong) as req.params.shortToLong;
   const shortCode = req.params.shortToLong;
-  res.json({
-    message: "From shortUrl to longUrl back",
-    success: true,
-    shortCode: shortCode,
-  });
-  // // Therefore, we have look on the Output as :-
-  /**
-   * Short Url Saved =>  {
-  shortCode: 'qh4PePpaw',
-  longUrl: 'https://t3.ftcdn.net/jpg/02/70/35/00/360_F_270350073_WO6yQAdptEnAhYKM5GuA9035wbRnVJSr.jpg',
-  _id: new ObjectId('68c5712fa70952183c49aa3b'),
-  __v: 0
-}
-   * 
-   */
-  // // Whereas, if we click on the Browser's shortUrl we are getting the Browser URL as :- (http://localhost:5000/qh4PePpaw)
-  /**
-   * {
-  "message": "From shortUrl to longUrl back",
-  "success": true,
-  "shortCode": "qh4PePpaw"
-}
-   * 
-   */
+  //   res.json({
+  //     message: "From shortUrl to longUrl back",
+  //     success: true,
+  //     shortCode: shortCode,
+  //   });
+  //   // // Therefore, have a look on the Output as :-
+  //   /**
+  //    * Short Url Saved =>  {
+  //   shortCode: 'qh4PePpaw',
+  //   longUrl: 'https://t3.ftcdn.net/jpg/02/70/35/00/360_F_270350073_WO6yQAdptEnAhYKM5GuA9035wbRnVJSr.jpg',
+  //   _id: new ObjectId('68c5712fa70952183c49aa3b'),
+  //   __v: 0
+  // }
+  //    *
+  //    */
+  //   // // Whereas, if we click on the Browser's shortUrl we are getting the Browser URL as :- (http://localhost:5000/qh4PePpaw)
+  //   /**
+  //    * {
+  //   "message": "From shortUrl to longUrl back",
+  //   "success": true,
+  //   "shortCode": "qh4PePpaw"
+  // }
+  //    *
+  //    */
+
+  // // // // Finding the shortUrl which matches it's exact longUrl;
+  const originalUrl = await Url.findOne({ shortCode });
+
+  //   res.json({ originalUrl });
+  //   // // Therefore, have a look on the Output as :-
+  //   /**
+  //    * Short Url Saved =>  {
+  //   shortCode: 'pADvjHiV6',
+  //   longUrl: 'https://5.imimg.com/data5/SELLER/Default/2021/1/NJ/GN/AS/75393646/3d-waterfall-nature-wallpaper.jpg',
+  //   _id: new ObjectId('68c573ab01baa07daa16d5ea'),
+  //   __v: 0
+  // }
+  //    */
+  //   // // Whereas, if we click on the Browser's shortUrl we are getting the Browser URL as :- (http://localhost:5000/pADvjHiV6)
+  //   /**
+  //    * {
+  //   "originalUrl": {
+  //     "_id": "68c573ab01baa07daa16d5ea",
+  //     "shortCode": "pADvjHiV6",
+  //     "longUrl": "https://5.imimg.com/data5/SELLER/Default/2021/1/NJ/GN/AS/75393646/3d-waterfall-nature-wallpaper.jpg",
+  //     "__v": 0
+  //   }
+  // }
+  //    *
+  //    */
+
+  // // // // Now, we can use the if/else statement;
+  if (originalUrl) {
+    res.redirect(originalUrl.longUrl);
+  } else {
+    res.json({ message: "Invalid short code" });
+  }
+  // // // // Finally, we are getting the Output on clicking the shortUrl of Browser's and it redirect to original url;
 });
 
 const PORT = 5000;
