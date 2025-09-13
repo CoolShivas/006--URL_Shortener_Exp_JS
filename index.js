@@ -41,6 +41,10 @@ server.post("/storing", async (request, response) => {
   response.render("index.ejs", { shortUrl });
 });
 
+// // // When we get the short url if user click on it render it by dynamically change the shortUrl to original Url (longUrl) to another page not on same page;
+server.get("/:shortToLong", (req, res) => {
+  res.json({ message: "From shortUrl to longUrl back", success: true });
+});
 const PORT = 5000;
 
 server.listen(PORT, () => {
