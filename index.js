@@ -43,8 +43,35 @@ server.post("/storing", async (request, response) => {
 
 // // // When we get the short url if user click on it render it by dynamically change the shortUrl to original Url (longUrl) to another page not on same page;
 server.get("/:shortToLong", (req, res) => {
-  res.json({ message: "From shortUrl to longUrl back", success: true });
+  // // Using params to get the dynamic shortCode after slash in url;
+  // // And, while using params we have to take the dynamic route i.e,(/:shortToLong) as req.params.shortToLong;
+  const shortCode = req.params.shortToLong;
+  res.json({
+    message: "From shortUrl to longUrl back",
+    success: true,
+    shortCode: shortCode,
+  });
+  // // Therefore, we have look on the Output as :-
+  /**
+   * Short Url Saved =>  {
+  shortCode: 'qh4PePpaw',
+  longUrl: 'https://t3.ftcdn.net/jpg/02/70/35/00/360_F_270350073_WO6yQAdptEnAhYKM5GuA9035wbRnVJSr.jpg',
+  _id: new ObjectId('68c5712fa70952183c49aa3b'),
+  __v: 0
+}
+   * 
+   */
+  // // Whereas, if we click on the Browser's shortUrl we are getting the Browser URL as :- (http://localhost:5000/qh4PePpaw)
+  /**
+   * {
+  "message": "From shortUrl to longUrl back",
+  "success": true,
+  "shortCode": "qh4PePpaw"
+}
+   * 
+   */
 });
+
 const PORT = 5000;
 
 server.listen(PORT, () => {
