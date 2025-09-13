@@ -1,0 +1,24 @@
+{
+  "name": "006--url_shortener_exp_js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoolShivas/006--URL_Shortener_Exp_JS.git"
+  },
+  "author": "shiva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CoolShivas/006--URL_Shortener_Exp_JS/issues"
+  },
+  "homepage": "https://github.com/CoolShivas/006--URL_Shortener_Exp_JS#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
